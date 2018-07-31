@@ -1,19 +1,25 @@
-#include<stdio.h>
+
+#include <stdio.h>
 int main()
 {
-int n, remainder,originalInteger,reversedInteger=0;
-printf("Enter the element");
-scanf("%d",&n);
-originalInteger=n;
-while(n!=0)
-{
-    remainder=n/10;
-    reversedInteger=reversedInteger*10+remainder;
-    n=n/10;
-}
-if(originalInteger==reversedInteger)
-  printf("%d is a palindrome",originalInteger);
-else
-  printf("%d is not a palindrome",originalInteger);
-return 0;
+    int number, originalNumber, remainder, result = 0;
+
+    printf("Enter a three digit integer: ");
+    scanf("%d", &number);
+
+    originalNumber = number;
+
+    while (originalNumber != 0)
+    {
+        remainder = originalNumber%10;
+        result += remainder*remainder*remainder;
+        originalNumber /= 10;
+    }
+
+    if(result == number)
+        printf("%d is an Armstrong number.",number);
+    else
+        printf("%d is not an Armstrong number.",number);
+
+    return 0;
 }
